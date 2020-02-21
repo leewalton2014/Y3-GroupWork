@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat' ;
+  color: #2c2c2c;
+  overflow-x: none;
+}
+
+.widthWrap {
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.video {
+  
+}
+
+header {
+  background-image:url(https://i.ytimg.com/vi/oxStySYH74k/maxresdefault.jpg);
+  background-color: #8a92f7;
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+}
+.smallHeader {
+  height: 40vh
+}
+
+#floatingNav {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+nav {
+  flex: 2;
+  display: flex;
+  padding-left: 5vw
+}
+#search {
+  width: 80vw;
+  margin: 0 auto;
+  padding-top: 10vh;
+}
+
+.twoCol {
+  display: flex;
+}
+
+
+/* fonts and forms */
+
+.cAlign {/* Center align class */
+  text-align: center;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 3vw;
+  margin: 5px 0;
+}
+.tagline {
+  margin-top: 10vh;
+}
+h2 {
+  font-weight: 700;
+  font-size: 2.2vh;
+  margin: 0;
+}
+#floatingNav h2 {
+  padding: 10px;
+  margin-top: 10px;
+}
+p {
+  font-size: 2.5vh;
+}
+#floatingNav h2 {
+  color: white;
+  font-weight: 300;
+}
+.active {
+  font-weight: bold!important;
+}
+.price {
+  color: #28a9fd;
+  text-align: right;
+  flex: 2;
+}
+.price h2, .price p {
+  font-size: 5vh;
+  display: inline-block;
+  margin: 0;
+}
+.price p {
+  font-size: 2vw;
+}
+
+input {
+  padding: 2.8vh;
+  font-family: 'Montserrat' ;
+  font-weight: 700;
+  border-radius: 4px;
+  border: 1px solid #cecece;
+  margin: 0;
+  color: #2c2c2c;
+}
+#searchLocation {
+  width: 52vw;
+}
+input[type=submit] {
+  background-color: #28a9fd;
+  color: white;
+  border: 1px solid #8a92f7;
+  margin: 0;
+  width: 20vw;
+}
+
+/* small Holiday preview */
+
+.smallHoliday {
+  width: 30vw;
+  padding: 2vw;
+}
+.smallHoliday img {
+  width: 100%;
+  height: 15vw;
+}
+
+.smallHoliday div {
+  margin-top: 10px;
+}
+
+.rating img {
+  height: 26px;
+  width: 107px;
+  padding-top: 10px;
+}
+
+/* view hotel */
+
+.hotel {
+  width: 60vw;
+}
+
+.hotel img {
+  width: 60vw;
+  margin-top: 2vh;
+}
+
+#lightSlider img {
+  width: 105%;
+  height: 40vh;
+  background-size: cover;
+  margin: 0;
+}
