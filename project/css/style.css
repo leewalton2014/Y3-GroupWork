@@ -11,10 +11,6 @@ body {
   margin: 0 auto;
 }
 
-.video {
-  
-}
-
 header {
   background-image:url(https://i.ytimg.com/vi/oxStySYH74k/maxresdefault.jpg);
   background-color: #8a92f7;
@@ -42,10 +38,15 @@ nav {
   padding-top: 10vh;
 }
 
-.twoCol {
+.splitCol {
   display: flex;
 }
 
+@media screen and (min-width: 1200px) {
+  header {
+    height: 65vh;
+  }
+}
 
 /* fonts and forms */
 
@@ -53,13 +54,13 @@ nav {
   text-align: center;
 }
 
+p {
+  font-size: 2.5vh;
+}
 h1 {
   font-weight: 300;
   font-size: 3vw;
   margin: 5px 0;
-}
-.tagline {
-  margin-top: 10vh;
 }
 h2 {
   font-weight: 700;
@@ -70,12 +71,13 @@ h2 {
   padding: 10px;
   margin-top: 10px;
 }
-p {
-  font-size: 2.5vh;
-}
+
 #floatingNav h2 {
   color: white;
   font-weight: 300;
+}
+.tagline {
+  margin-top: 10vh;
 }
 .active {
   font-weight: bold!important;
@@ -114,7 +116,25 @@ input[type=submit] {
   width: 20vw;
 }
 
-/* small Holiday preview */
+
+@media screen and (min-width: 1200px) {
+  /* Set max font size on larger screens */
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  .price h2, .price p {
+    font-size: 36px;
+  }
+  .price p {
+    font-size: 18px;
+  }
+  
+}
+
+/* Featured Holiday preview */
 
 .smallHoliday {
   width: 30vw;
@@ -123,16 +143,50 @@ input[type=submit] {
 .smallHoliday img {
   width: 100%;
   height: 15vw;
+  object-fit: cover;
 }
-
 .smallHoliday div {
   margin-top: 10px;
 }
-
-.rating img {
+.largeHoliday .rating img, .smallHoliday .rating img  {/* Remove change to real user rating */
   height: 26px;
   width: 107px;
   padding-top: 10px;
+}
+
+.largeHoliday {
+  width: 60vw;
+  padding: 2vw;
+}
+.largeHoliday img {
+  width: 100%;
+  height: 16vw;
+  object-fit: cover;
+}
+
+/* Country slider */
+
+#countrySlider img {
+  width: 105%;
+  height: 40vh;
+  object-fit: cover;
+  margin: 0;
+}
+
+@media screen and (min-width: 1200px) {
+  #countrySlider img {
+    height: 35vh;
+  } 
+}
+
+/* hotel slider */
+
+#holidaySlider .smallHoliday {
+  padding: 0;
+}
+.holidaySliderWrap {
+  max-width: 86vw;
+  margin: 0 auto;
 }
 
 /* view hotel */
@@ -146,9 +200,8 @@ input[type=submit] {
   margin-top: 2vh;
 }
 
-#lightSlider img {
-  width: 105%;
-  height: 40vh;
-  background-size: cover;
-  margin: 0;
+@media screen and (min-width: 1200px) {
+  .hotel img {
+    height: 400px
+  }
 }
