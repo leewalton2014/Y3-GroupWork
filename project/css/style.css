@@ -185,10 +185,13 @@ input[type=submit]:hover {
   width: 50%;
 }
 .match {
-   border: 2px solid #0eb400;
+  border: 2px solid #0eb400;
 }
 .noMatch {
-   border: 2px solid #ff6a6a;
+  border: 2px solid #ff6a6a;
+}
+.loginForm p {
+  color: #ff6a6a;
 }
 
 @media screen and (min-width: 1200px) {
