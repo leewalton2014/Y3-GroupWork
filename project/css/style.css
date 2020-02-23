@@ -10,18 +10,24 @@ body {
   max-width: 90vw;
   margin: 0 auto;
 }
+.splitCol {
+  display: flex;
+}
 
 header {
-  background-image:url(https://i.ytimg.com/vi/oxStySYH74k/maxresdefault.jpg);
+  background-image:url(/img/header.jpg);
   background-color: #8a92f7;
   background-position: center;
   background-size: cover;
   height: 75vh;
 }
+article {
+  max-width: 60vw;
+  padding: 2vw
+}
 .smallHeader {
   height: 40vh
 }
-
 #floatingNav {
   display: flex;
   max-width: 90vw;
@@ -38,9 +44,7 @@ nav {
   padding-top: 10vh;
 }
 
-.splitCol {
-  display: flex;
-}
+
 
 @media screen and (min-width: 1200px) {
   header {
@@ -88,12 +92,40 @@ h2 {
   flex: 2;
 }
 .price h2, .price p {
-  font-size: 5vh;
+  font-size: 3vw;
   display: inline-block;
   margin: 0;
 }
 .price p {
   font-size: 2vw;
+}
+.accent {
+  background: #28a9fd;
+  display: inline-block;
+  padding: 0.3vw;
+  color: white;
+  margin-top: 10px
+}
+.countryName {
+  position: absolute;
+  padding: 10px 20px;
+  color: white;
+  z-index: 99;
+}
+article h1 {
+  display: inline-block;
+  border-bottom: 4px solid #28a9fd;
+}
+article ul {
+  list-style: none;
+  padding-left: 2vw
+}
+article li:before {
+  content: "-";
+  color: #28a9fd;
+  font-size: 20px;
+  padding-right: 20px;
+  font-weight: bold;
 }
 
 input {
@@ -126,16 +158,18 @@ input[type=submit] {
     font-size: 16px;
   }
   .price h2, .price p {
-    font-size: 36px;
+    font-size: 30px;
   }
   .price p {
     font-size: 18px;
   }
-  
+  p {
+    font-size: 18px
+  }
 }
 
-/* Featured Holiday preview */
 
+/* Small Holiday*/
 .smallHoliday {
   width: 30vw;
   padding: 2vw;
@@ -148,12 +182,13 @@ input[type=submit] {
 .smallHoliday div {
   margin-top: 10px;
 }
-.largeHoliday .rating img, .smallHoliday .rating img  {/* Remove change to real user rating */
+.largeHoliday .rating img, .smallHoliday .rating img, .basicHoliday .rating img  {/* Remove change to real user rating */
   height: 26px;
   width: 107px;
   padding-top: 10px;
 }
 
+/* Large Holiday*/
 .largeHoliday {
   width: 60vw;
   padding: 2vw;
@@ -164,6 +199,33 @@ input[type=submit] {
   object-fit: cover;
 }
 
+/* Small Holiday Basic*/
+.basicHoliday {
+  width: 20vw;
+  padding: 1vw;
+  border: 1px solid #cbcbcb;
+  border-radius: 0.2vw;
+  margin: 2vw;
+  margin-left: 0;
+  padding-bottom: 0;
+}
+.basicHoliday:first-child {
+  margin-left: 2vw;
+}
+.basicHoliday img {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.basicHoliday div {
+  margin-top: 10px;
+}
+.basicHoliday .price {
+  float: right;
+  position: relative;
+  bottom: 2vh
+}
+
 /* Country slider */
 
 #countrySlider img {
@@ -171,6 +233,12 @@ input[type=submit] {
   height: 40vh;
   object-fit: cover;
   margin: 0;
+  filter: brightness(50%);
+  transition: 1s ease;
+  cursor: pointer;
+}
+#countrySlider img:hover {
+  filter: brightness(100%);
 }
 
 @media screen and (min-width: 1200px) {
@@ -189,7 +257,7 @@ input[type=submit] {
   margin: 0 auto;
 }
 
-/* view hotel */
+/* view holiday */
 
 .hotel {
   width: 60vw;
