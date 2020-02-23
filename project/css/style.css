@@ -14,6 +14,9 @@ body {
   display: flex;
 }
 
+main {
+  margin-bottom: 4vw;
+}
 header {
   background-image:url(/img/header.jpg);
   background-color: #8a92f7;
@@ -21,9 +24,21 @@ header {
   background-size: cover;
   height: 75vh;
 }
+footer {
+  background-color: #28a9fd;
+  margin-bottom: 0;
+  padding: 1vw 2vw;
+}
+footer div div {
+  padding: 2vw;
+  width: 50%;
+}
 article {
   max-width: 60vw;
   padding: 2vw
+}
+.hotel article {
+  padding-left: 0;
 }
 .smallHeader {
   height: 40vh
@@ -43,7 +58,11 @@ nav {
   margin: 0 auto;
   padding-top: 10vh;
 }
-
+.viewBtn {
+  margin-bottom: 1vw!important;
+  width: 100%!important;
+  text-align: center;
+}
 
 
 @media screen and (min-width: 1200px) {
@@ -147,6 +166,10 @@ input[type=submit] {
   margin: 0;
   width: 20vw;
 }
+input[type=submit]:hover {
+  background-color: #248ed3;
+  cursor: pointer;
+}
 
 
 @media screen and (min-width: 1200px) {
@@ -208,8 +231,9 @@ input[type=submit] {
   margin: 2vw;
   margin-left: 0;
   padding-bottom: 0;
+  margin-bottom: 0;
 }
-.basicHoliday:first-child {
+section .basicHoliday:first-child, section .basicHoliday:nth-child(4n+5) {
   margin-left: 2vw;
 }
 .basicHoliday img {
@@ -224,6 +248,17 @@ input[type=submit] {
   float: right;
   position: relative;
   bottom: 2vh
+}
+.basicHolidayWrap {
+  flex-wrap: wrap;
+}
+.basicHolidayWrap>* {
+  flex: 1 1 15vw;
+}
+aside .basicHoliday {
+  margin-left: 6vw;
+  margin-right: 0;
+  width: 20vw;
 }
 
 /* Country slider */
