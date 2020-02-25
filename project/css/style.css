@@ -334,6 +334,7 @@ aside .basicHoliday {
   border: 1px solid #cbcbcb;
   border-radius: 0.2vw;
   margin-top: 2vw;
+  padding-bottom: 0;
 }
 
 aside .hotelContinue {
