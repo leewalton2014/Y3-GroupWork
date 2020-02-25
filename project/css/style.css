@@ -132,10 +132,6 @@ h2 {
   color: white;
   z-index: 99;
 }
-article h1 {
-  display: inline-block;
-  border-bottom: 4px solid #28a9fd;
-}
 article h3 {
   color: #28a9fd;
 }
@@ -288,7 +284,6 @@ aside .basicHoliday {
 }
 
 /* Country slider */
-
 #countrySlider img {
   width: 105%;
   height: 40vh;
@@ -309,7 +304,6 @@ aside .basicHoliday {
 }
 
 /* hotel slider */
-
 #holidaySlider .smallHoliday {
   padding: 0;
 }
@@ -319,16 +313,13 @@ aside .basicHoliday {
 }
 
 /* view holiday */
-
 .hotel {
   width: 60vw;
 }
-
 .hotel img {
   width: 60vw;
   margin-top: 2vh;
 }
-
 .hotelContinue {
   padding: 1vw;
   border: 1px solid #cbcbcb;
@@ -336,7 +327,6 @@ aside .basicHoliday {
   margin-top: 2vw;
   padding-bottom: 0;
 }
-
 aside .hotelContinue {
   margin-left: 6vw;
   margin-right: 0;
