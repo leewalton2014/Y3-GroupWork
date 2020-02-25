@@ -18,7 +18,7 @@ main {
   margin-bottom: 4vw;
 }
 header {
-  background-image:url(/img/header.jpg);
+  background-image:url(../img/header.jpg);
   background-color: #8a92f7;
   background-position: center;
   background-size: cover;
