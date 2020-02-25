@@ -6,9 +6,20 @@
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
   <link type="text/css" rel="stylesheet" href="css/lightslider.css" />                  
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/lightslider.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
+  
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content",
+      collapsible: true
+    });
+  } );
+  </script>
+  
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -45,19 +56,57 @@
           <span class="price"><p>From</p><h2>425pp</h2></span>
         </div>
         <img src="https://a.loveholidays.com/images/holidays/26667165c6c6070107047d269ff250259185a663/holidays/united-arab-emirates/dubai/the-palm-jumeirah/dukes-the-palm-a-royal-hideaway-hotel-0.jpg?auto=webp&fit=crop&height=576&width=880&quality=60"/>
+        
         <article>
-          <h1>Example article Title</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <ul>
-            <li>List of items example</li>
-            <li>List of items example</li>
-            <li>List of items example</li>
-            <li>List of items example</li>
-          </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-      </article>
+          <h1>Holiday Description</h1>
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <ul>
+              <li>List of items example</li>
+              <li>List of items example</li>
+              <li>List of items example</li>
+              <li>List of items example</li>
+            </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          </div>
+        </article>
+        
+        <article id="accordion">
+          <h3>Location</h3>
+          <div>
+            <p>
+            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+            suscipit faucibus urna.<br>
+            </p>
+            <p>Map</p>
+          </div>
+          <h3>More Info</h3>
+          <div>
+            <p>
+            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+            Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+            ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+            lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+            </p>
+            <ul>
+              <li>List item one</li>
+              <li>List item two</li>
+              <li>List item three</li>
+            </ul>
+          </div>
+        </article>
       </div>
       <aside>
+        <div class="cAlign hotelContinue">
+          <span class="price">&#163;<h2>425pp</h2></span>
+          <br>
+          <span class="price"><p>Total Price &#163;</p><h2>850</h2></span>
+          <input class="viewBtn" type="submit" value="continue">
+        </div>
+        
+        
         <div class="basicHoliday">
           <img src="https://a.loveholidays.com/images/holidays/26667165c6c6070107047d269ff250259185a663/holidays/united-arab-emirates/dubai/the-palm-jumeirah/dukes-the-palm-a-royal-hideaway-hotel-0.jpg?auto=webp&fit=crop&height=576&width=880&quality=60"/>
           <h2 class="accent">Hotel Country, and City</h2>
