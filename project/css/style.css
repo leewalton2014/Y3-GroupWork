@@ -217,7 +217,6 @@ input[type=submit]:hover {
 }
 .check {
   padding: 1vw;
-  margin-bottom: 2vw;
 }
 
 @media screen and (min-width: 1200px) {
