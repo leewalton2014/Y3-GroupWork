@@ -78,6 +78,10 @@ nav {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 p {
   font-size: 2.5vh;
 }
@@ -194,6 +198,28 @@ input[type=submit]:hover {
   color: #ff6a6a;
 }
 
+/* checkboxes */
+.btnCheck input[type=checkbox]{
+  display: none;
+}
+.btnCheck .check {
+  padding: 1vw;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid #cecece;
+  margin-bottom: 1vw;
+  margin-right: 0.8vw;
+  user-select: none;    
+}
+.btnCheck :checked + label {
+  background: #28a9fd;
+  color: white;
+}
+.check {
+  padding: 1vw;
+  margin-bottom: 2vw;
+}
+
 @media screen and (min-width: 1200px) {
   /* Set max font size on larger screens */
   h1 {
@@ -227,7 +253,7 @@ input[type=submit]:hover {
 .smallHoliday div {
   margin-top: 10px;
 }
-.largeHoliday .rating img, .smallHoliday .rating img, .basicHoliday .rating img  {/* Remove change to real user rating */
+.largeHoliday .rating img, .smallHoliday .rating img, .basicHoliday .rating img, .searchResult .rating img  {/* Remove change to real user rating */
   height: 26px;
   width: 107px;
   padding-top: 10px;
@@ -283,7 +309,7 @@ aside .basicHoliday {
   width: 20vw;
 }
 
-/* Country slider */
+/* Country slider on homepage */
 #countrySlider img {
   width: 105%;
   height: 40vh;
@@ -341,4 +367,29 @@ aside .hotelContinue {
   .hotel img {
     height: 400px
   }
+}
+
+/* Search Page, and results  */
+
+.searchTxt {
+  color: #9f9f9f;
+  padding: 1vw 2vw;
+}
+.searchResult {
+  width: 60vw;
+  padding: 2vw;
+  margin-bottom: -2vw;
+}
+.searchResult img {
+  width: 20vw;
+  height: 15vw;
+  object-fit: cover;
+}
+.resultInfo {
+  padding: 2vw;
+  padding-top: 0;
+}
+.searchResult:hover h1 {
+  color: #28a9fd;
+  transition: 0.6s ease;
 }
