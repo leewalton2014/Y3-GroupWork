@@ -21,9 +21,10 @@ main {
 header {
   background-image:url(../img/header.jpg);
   background-color: #8a92f7;
-  background-position: center;
+  background-position: center -10vw;
   background-size: cover;
   height: 75vh;
+  background-attachment: fixed;
 }
 footer {
   background-color: #28a9fd;
@@ -42,7 +43,8 @@ article {
   padding-left: 0;
 }
 .smallHeader {
-  height: 40vh
+  height: 40vh;
+  background-position: center -6vw;
 }
 #floatingNav {
   display: flex;
@@ -391,4 +393,92 @@ aside .hotelContinue {
 .searchResult:hover h1 {
   color: #28a9fd;
   transition: 0.6s ease;
+}
+
+/* Admin Page */
+
+.adminHeader {
+  height: auto;
+  background: none;
+  position: fixed;
+  width: 20vw;
+}
+.adminHeader h1 {
+  padding: 2vw;
+}
+.admin aside {
+  color: white;
+  background: grey;
+  height: auto;
+  width: 20vw;
+  overflow-y: none;
+}
+.admin aside ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  width: 20vw;
+}
+.admin aside li {
+  list-style: none;
+  padding: 1vw;
+  padding-left: 2vw;
+}
+.admin aside li:hover {
+  padding-left: 3vw;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.admin .active {
+  background: #696969;
+}
+.admin main {
+  padding: 2vw;
+  width: 80vw;
+  background: white;
+  z-index: 0;
+  padding-top: 0;
+}
+.admin main h1 {
+  padding-top: 2vw;
+}
+.admin table {
+  width: 100%;
+  margin-top: 2vw;
+}
+.admin td {
+  padding: 1vw;
+}
+.admin tr:nth-child(odd){
+  background: #e5e5e5;
+}
+.admin th {
+  text-align: left;
+  padding: 1vw;
+  background: #28a9fd;
+  color: white;
+}
+.admin td a {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+}
+.adminSearch {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+}
+.addForm {
+  width: 80vw;
+  margin-top: 2vw;
+}
+.addForm input {
+  width: 20vw;
+  min-width: 400px;
+  margin: 1vw;
+  margin-left: 0;
+  margin-top: 0;
+  box-sizing: border-box;
+}
+.addForm label {
+  margin-top: 1vw;
 }
