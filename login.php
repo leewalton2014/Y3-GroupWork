@@ -2,7 +2,7 @@
 <?php require_once"functions.php";
 ini_set("session.save_path", "/home/unn_w15010508/sessionData");
 session_start();
-
+//hi
 
     $username = filter_has_var(INPUT_POST, 'username') ? $_POST ['username'] : null;
     $username = trim($username);
