@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Change Me!</title>
-  <link type="text/css" rel="stylesheet" href="css/lightslider.css" />                  
+  <link type="text/css" rel="stylesheet" href="css/lightslider.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/lightslider.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap" rel="stylesheet">
@@ -11,14 +11,17 @@
 </head>
 
 <body>
+
+
+
   <header>
     <div id="floatingNav" class="widthWrap">
       <div class="logo">
         <h1><b>Travel</b> Co.</h1>
       </div>
       <nav>
-        <a><h2 class="active">Homepage</h2></a>
-        <a><h2>nav element</h2></a>
+        <a href='index.htm'><h2 class="active">Homepage</h2></a>
+        <a href='holiday.htm'><h2>Holidays</h2></a>
         <a><h2>nav element</h2></a>
       </nav>
       <div id="login">
@@ -80,7 +83,7 @@
         <div class="splitCol">
           <div class="rating"><img src="img/ratingPlaceholder.jpg"/></div>
           <span class="price"><p>From</p><h2>425pp</h2></span>
-        </div>  
+        </div>
       </div>
       <!-- large featured holiday -->
       <div class="largeHoliday">
@@ -95,7 +98,7 @@
         </div>
       </div>
     </div><!-- end 1 large 1 small holiday -->
-    
+
     <!-- 4 Small basic holiday suggestions -->
     <h1 class="cAlign"><br>A title for this section</h1>
     <section class="widthWrap splitCol">
@@ -128,7 +131,7 @@
         <span class="price"><p>From</p><h2>425pp</h2></span>
       </div>
     </section>
-    
+
   </main>
   <footer>
     <div class="widthWrap splitCol">
@@ -139,7 +142,7 @@
       <h1 class="cAlign"><b>Travel</b> Co.</h1>
     </footer>
   </footer>
-  
+
   <script type="text/javascript">
     $(document).ready(function() {
       $("#countrySlider").lightSlider({
@@ -150,15 +153,15 @@
         auto: true,
         loop: true,
         pauseOnHover: true,
-      }); 
+      });
       $("#holidaySlider").lightSlider({
         controls: true,
         item: 2.8,
         pager: true,
         enableTouch: true,
-      }); 
+      });
     });
   </script>
-    
+
 </body>
 </html>
