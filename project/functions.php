@@ -2,8 +2,8 @@
 //Database connection
 function getConnection() {
     try {
-        $connection = new PDO('mysql:host=localhost;dbname=unn_w17007224',
-            'unn_w17007224', 'db2020lww');
+        $currentPath = getcwd();
+        $connection = new PDO('sqlite:tc_holidays.sqlite');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connection;
     } catch (Exception $e) {
