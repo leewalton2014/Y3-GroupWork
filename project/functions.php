@@ -101,4 +101,9 @@ endHTML;
   $content .= "\n";
   echo $content;
 }
+
+function holidaysJs(){
+    
+    echo "<script src='holidaysJs.js' type='text/javascript'</script>";
+}
 ?>
