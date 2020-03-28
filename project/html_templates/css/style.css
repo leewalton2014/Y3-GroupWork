@@ -482,3 +482,69 @@ aside .hotelContinue {
 .addForm label {
   margin-top: 1vw;
 }
+
+/* Reviews */ 
+#checkboxes {
+  margin-left: 2vw;
+}
+.checkboxgroup{
+  display:inline-block;
+  text-align:center;
+  padding: 1vw;
+}
+.checkboxgroup label {
+  display:block;
+}
+#custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+textarea {
+  padding: 2.8vh;
+  font-family: 'Montserrat' ;
+  font-weight: 700;
+  border-radius: 4px;
+  border: 1px solid #cecece;
+  margin: 0;
+  color: #2c2c2c;
+}
+.reviewForm textarea {
+  width: 55vw;
+  height: 10vh;
+}
+.reviewForm input[type=radio] {
+  width: 1vw;
+}
+.reviewForm input {
+  width: 55vw;
+  margin-bottom: 1vw;
+}
+.reviewInfo img {
+  width: 107px;
+  height: 26px;
+}
+.reviewInfo p {
+  width: 10vw;
+}
+.reviewInfoHeader img {
+  width: 120px;
+  height: 30px;
+}
+
+.fullReview img {
+  width: 107px;
+  height: 26px;
+  margin-right: 1vw;
+}
+.fullReview .splitCol p {
+  padding-right: 1vw;
+} 
+.fullReview {
+  padding: .5vw 2vw;
+  border-left: 10px solid #28a9fd;
+  margin-bottom: 1vw;
+}
