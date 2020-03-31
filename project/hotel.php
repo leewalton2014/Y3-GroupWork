@@ -10,7 +10,7 @@ $hotelID = filter_has_var(INPUT_GET, 'hotelID') ? $_GET['hotelID'] : null;
 
 
 $dbConn = getConnection();
-$getUsersQuery = "SELECT hotelName, hotelDescription, hotelLocation, roomNo, boardType, nightRatePerPerson, occupancy, typeName, locationCity, locationCountry, imageRef
+$getUsersQuery = "SELECT tc_hotels.hotelID, hotelName, hotelDescription, hotelLocation, roomNo, boardType, nightRatePerPerson, occupancy, typeName, locationCity, locationCountry, imageRef
 
 FROM tc_rooms INNER JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
               INNER JOIN tc_hotels on tc_hotels.hotelID = tc_rooms.hotelID
@@ -113,14 +113,28 @@ while ($rowObj = $queryResult->fetchObject()){
           <span class='price'>&#163;<h2>425pp</h2></span>
           <br>
           <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
-          <input class='viewBtn' type='submit' value='Continue'>
+          <h1><a class='#' href='book-holiday.php?hotelID={$rowObj->hotelID}'>Continue</a></h1>     
         </div>
         </aside>
       </div>";
+      
 }
 
-
-
+/*
+    <aside>
+        <div class='cAlign hotelContinue'>
+          <span class='price'>&#163;<h2>425pp</h2></span>
+          <br>
+          <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
+          <form action='book-holiday.php?hotelID={$rowObj->hotelID}'>
+          <a href='book-holiday.php?hotelID={$rowObj->hotelID}'>View</a>
+          <input class='viewBtn' type='submit' value='Continue'>
+          </form>
+        </div>
+        </aside>
+      </div>
+    
+*/
 
 echo "</div>";
 makeFooter();
