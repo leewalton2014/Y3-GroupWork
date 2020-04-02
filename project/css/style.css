@@ -547,3 +547,15 @@ textarea {
   border-left: 10px solid #28a9fd;
   margin-bottom: 1vw;
 }
+.buttonCust {
+  background-color: #28a9fd;
+  color: white;
+  border: 1px solid #8a92f7;
+  margin: 0;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  width: 100%
+}

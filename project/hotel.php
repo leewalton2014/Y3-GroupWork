@@ -27,52 +27,7 @@ $queryResult = $dbConn->query($getUsersQuery);
 
 
 echo "<div class='widthWrap splitCol'>";
-/*
-while ($rowObj = $queryResult->fetchObject()){
-    echo "<div class='smallHoliday'>
-        <img src='{$rowObj->imageRef}'/>
-        <h1>{$rowObj->hotelName}</h1>
 
-        <div class='splitCol'>
-        <div class='rating'><img src='img/ratingPlaceholder.jpg'/></div>
-        <span class='price'><p>From</p><h2>£{$rowObj->nightRatePerPerson}pp</h2></span>
-        </div>
-
-
-        <h2>{$rowObj->locationCity}, {$rowObj->locationCountry}</h2>
-
-        <p>{$rowObj->hotelDescription}</p>
-        <h2>Board Type</h2>
-        <p>{$rowObj->boardType}</p>
-
-
-        <form action='hotelBooking.php' method='post'>
-        <h2>Select Room Type</h2>
-        <select>
-            <option value={$rowObj->typeName}'>{$rowObj->typeName}</option>
-        </select>
-        <hr>
-            <input type='submit' value='Book Now'>
-        </form>
-        <hr>
-
-
-        <h2>Read the Reviews</h2>
-
-
-
-
-
-
-
-
-      </div>
-
-
-      ";
-
-
-}*/
 while ($rowObj = $queryResult->fetchObject()){
     echo "<div class='widthWrap splitCol'>
       <div class='hotel'>
@@ -105,36 +60,62 @@ while ($rowObj = $queryResult->fetchObject()){
             </p>
             <iframe src='https://www.google.com/maps/embed/v1/place?key=AIzaSyD-Ikb9FiJVmyXVjSUH2Wms2ot8enQbzu0&q={$rowObj->locationCity},{$rowObj->locationCountry}' width='100%' height='400' frameborder='0' style='border:0;' allowfullscreen=''></iframe>
           </div>
-        </article>
+        </article>";
 
-      </div>
-      <aside>
-        <div class='cAlign hotelContinue'>
-          <span class='price'>&#163;<h2>425pp</h2></span>
-          <br>
-          <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
-          <h1><a class='#' href='book-holiday.php?hotelID={$rowObj->hotelID}'>Continue</a></h1>     
-        </div>
-        </aside>
-      </div>";
-      
 }
 
-/*
-    <aside>
-        <div class='cAlign hotelContinue'>
-          <span class='price'>&#163;<h2>425pp</h2></span>
-          <br>
-          <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
-          <form action='book-holiday.php?hotelID={$rowObj->hotelID}'>
-          <a href='book-holiday.php?hotelID={$rowObj->hotelID}'>View</a>
-          <input class='viewBtn' type='submit' value='Continue'>
-          </form>
-        </div>
-        </aside>
-      </div>
-    
-*/
+//review summary
+echo "<h1>Reviews</h1>
+<div class='splitCol reviewInfo reviewInfoHeader'>
+  <img src='img/rating3.jpg'>
+  <p>(22 reviews)</p>
+</div>
+<span class='splitCol reviewInfo'>
+  <p>Cleanliness:</p>
+  <img src='img/rating5.jpg'>
+</span>
+<span class='splitCol reviewInfo'>
+  <p>Value:</p>
+  <img src='img/rating1.jpg'>
+</span>
+<span class='splitCol reviewInfo'>
+  <p>Service:</p>
+  <img src='img/rating3.jpg'>
+</span>
+
+<a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
+<br>
+
+<div class='fullReview'>
+  <p><b>Review Title</b></p>
+  <div class='splitCol'>
+    <img src='img/rating5.jpg'>
+    <p> 10 Jan 2020, </p>
+    <p> Useraname</p>
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+</div>
+<div class='fullReview'>
+  <p><b>Review Title</b></p>
+  <div class='splitCol'>
+    <img src='img/rating1.jpg'>
+    <p> 10 Jan 2020, </p>
+    <p> Useraname</p>
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+</div>
+</div>
+</div>";
+
+echo "<aside>
+  <div class='cAlign hotelContinue'>
+    <span class='price'>&#163;<h2>425pp</h2></span>
+    <br>
+    <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
+    <h1><a class='#' href='book-holiday.php?hotelID=$hotelID'>Continue</a></h1>
+  </div>
+  </aside>";
+
 
 echo "</div>";
 makeFooter();
