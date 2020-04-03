@@ -57,7 +57,7 @@ makeHeader();
 <h1>Add a room for an existing hotel</h1>
 
 
-<form action='addroom-process'>
+<form action='addroom-process.php' method="post">
     
    <!-- <option value='{$rowObj->hotelID}'>{$rowObj->hotelName}</option><br><br>-->
   
@@ -79,7 +79,7 @@ $queryResult = $dbConn->query($getUsersQuery);
 
 
 while ($rowObj = $queryResult->fetchObject()){
-    echo "<form action='addroom-process.php' method='post'>
+    echo "
     
           
           <input type='radio' value='{$rowObj->hotelID}' name='hotelID'>
@@ -87,7 +87,7 @@ while ($rowObj = $queryResult->fetchObject()){
 
         }
          echo"<h3>Room Number</h3>
-          <input type='text' placeholder='Room Number'><br>";
+          <input type='text' placeholder='Room Number' name='roomNumber'><br>";
     
     
 
