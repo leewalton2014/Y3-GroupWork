@@ -7,11 +7,10 @@ makeHeader();
 
 $hotelID = filter_has_var(INPUT_GET, 'hotelID') ? $_GET['hotelID'] : null;
 $userID = 1;//PLACEHOLDER UNTILL SESSIONS IMPLEMENTED
-$date = date("Y-m-d");
 $dbConn = getConnection();
 
 echo "<div class='widthWrap splitCol'>";
-echo "<form class='reviewForm'>
+echo "<form class='reviewForm' action='processReview.php' method='POST' enctype='multipart/form-data'>
   <h1>Review Form</h1>
   <div class='splitCol'>
     <p><b>Overall: </b></p>
@@ -144,13 +143,12 @@ echo "<form class='reviewForm'>
     </div>
   </div>
   <p><b>Review:</b></p>
-  <input type='hidden' id='hotelID' value='$hotelID'>
-  <input type='hidden' id='userID' value='$userID'>
-  <input type='hidden' id='userID' value='$userID'>
-  <input type='text' id='reviewTitle' placeholder='Title of review'/>
-  <textarea placeholder='Review message here' id='reviewText'></textarea><br><br>
+  <input type='hidden' name='hotelID' value='$hotelID'>
+  <input type='hidden' name='userID' value='$userID'>
+  <input type='text' name='reviewTitle' placeholder='Title of review'/>
+  <textarea placeholder='Review message here' name='reviewText'></textarea><br><br>
   <input class='viewBtn' type='submit' value='Submit Review'>
-</form><!-- End of review form -->";
+</form>";
 
 
 

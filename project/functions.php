@@ -3,7 +3,8 @@
 function getConnection() {
     try {
         $currentPath = getcwd();
-        $connection = new PDO('sqlite:tc_holidays.sqlite');
+        //$connection = new PDO('sqlite:tc_holidays.sqlite');
+        $connection = new PDO('mysql:host=localhost;dbname=unn_w17007224', 'unn_w17007224', 'db2020lww');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connection;
     } catch (Exception $e) {
@@ -103,7 +104,7 @@ endHTML;
 }
 
 function holidaysJs(){
-    
+
     echo "<script src='holidaysJs.js' type='text/javascript'</script>";
 }
 ?>
