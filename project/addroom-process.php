@@ -41,7 +41,7 @@ try {
             }
 
             if ($errors === true) {
-                echo "<p><a href='holidays.php'>Please try again</a>.</p>\n";
+                echo "<p><a href='addholiday-form.php'>Please try again</a>.</p>\n";
             } else {
                 $dbConn = getConnection();
                

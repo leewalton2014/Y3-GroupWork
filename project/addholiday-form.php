@@ -7,23 +7,23 @@ makeHeader();
 ?>
 
 <h1>Create A Hotel</h1>
-<form action="addholiday-process" method="post">
-<input type="text" placeholder="Hotel Name">
-<input type="text" placeholder="Hotel Description">
+<form action="addholiday-process.php" method="post">
+<input type="text" placeholder="Hotel Name" name="hotelName">
+<input type="text" placeholder="Hotel Description" name="hotelDescription">
 <h2>Hotel Location</h2>
-<input type="radio" value="1" name="location">
+<input type="radio" value="1" name="locationID">
 <label for="1">London</label>
-<input type="radio" value="2" name="location">
+<input type="radio" value="2" name="locationID">
 <label for="2">Manchester</label>
-<input type="radio" value="3" name="location">
+<input type="radio" value="3" name="locationID">
 <label for="3">Tokyo</label>
-<input type="radio" value="4" name="location">
+<input type="radio" value="4" name="locationID">
 <label for="4">Paris</label>
-<input type="radio" value="5" name="location">
+<input type="radio" value="5" name="locationID">
 <label for="5">Berlin</label>
 
 
-<input type="text" placeholder="Image Link">
+<input type="text" placeholder="Image Link" name="imageRef">
 <h2>Inclusions</h2>
 <p>Pool</p>
 <input type="radio" value="1" name="pool">
@@ -31,9 +31,9 @@ makeHeader();
 <input type="radio" value="0" name="pool">
 <label for="0">No</label>
 <p>Spa</p>
-<input type="radio" value="1" name="pool">
+<input type="radio" value="1" name="spa">
 <label for="1">Yes</label>
-<input type="radio" value="0" name="pool">
+<input type="radio" value="0" name="spa">
 <label for="0">No</label>
 <p>Balcony</p>
 <input type="radio" value="1" name="balcony">
