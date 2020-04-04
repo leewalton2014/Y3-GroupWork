@@ -19,11 +19,24 @@ FROM tc_rooms INNER JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
 
 $queryResult = $dbConn->query($getUsersQuery);
 
-echo "<div class='widthWrap splitCol'>";
+
+echo '<h1>Edit Hotel Information</h1>
+<form action="updateHoliday.php" method="post">
+<h2>Hotel Location</h2>
+<input type="radio" value="1" name="locationID">
+<label for="1">London</label>
+<input type="radio" value="2" name="locationID">
+<label for="2">Manchester</label>
+<input type="radio" value="3" name="locationID">
+<label for="3">Tokyo</label>
+<input type="radio" value="4" name="locationID">
+<label for="4">Paris</label>
+<input type="radio" value="5" name="locationID">
+<label for="5">Berlin</label>';
+
 
 while ($rowObj = $queryResult->fetchObject()){
-    echo "<h1>Edit Hotel Information</h1>
-          <form action='updateHoliday.php' method='post'>
+    echo "
           <h2>Hotel ID</h2>
           <input type='text' name='hotelID' value='{$rowObj->hotelID}' readonly>
           <h2>Hotel Name</h2>
@@ -32,19 +45,48 @@ while ($rowObj = $queryResult->fetchObject()){
           <input type='text' name='nightRatePerPerson' value='{$rowObj->nightRatePerPerson}'>
           <h2>Hotel Description</h2>
           <input type='text' name='hotelDescription' value='{$rowObj->hotelDescription}'>
-          <h2>Board Type (Cannot Update Yet)</h2>
-          <input type='text' name='boardType' value='{$rowObj->boardType}'>
-          <input type='submit' value='Submit Changes'>
-          </form>
+          <h2>Image Link</h2>
+          <input type='text' name='imageRef' value='{$rowObj->imageRef}'>
             ";
 }
+echo '
+<h2>Inclusions</h2>
+<p>Pool</p>
+<input type="radio" value="1" name="pool">
+<label for="1">Yes</label>
+<input type="radio" value="0" name="pool">
+<label for="0">No</label>
+<p>Spa</p>
+<input type="radio" value="1" name="spa">
+<label for="1">Yes</label>
+<input type="radio" value="0" name="spa">
+<label for="0">No</label>
+<p>Balcony</p>
+<input type="radio" value="1" name="balcony">
+<label for="1">Yes</label>
+<input type="radio" value="0" name="balcony">
+<label for="0">No</label>
+<p>Bar</p>
+<input type="radio" value="1" name="bar">
+<label for="1">Yes</label>
+<input type="radio" value="0" name="bar">
+<label for="0">No</label>
+<p>Restaurant</p>
+<input type="radio" value="1" name="restaurant">
+<label for="1">Yes</label>
+<input type="radio" value="0" name="restaurant">
+<label for="0">No</label><br>
+
+<input type="submit" value="Submit Changes">
+          </form>';
+
 
 //<a href='editRecord.php?recordID={$rowObj->recordID}'>{$rowObj->recordTitle}</a>
 
 holidaysJs();
 
 
-echo "</div>";
+
 makeFooter();
 endHTML();
 ?>
