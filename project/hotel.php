@@ -64,6 +64,12 @@ while ($rowObj = $queryResult->fetchObject()){
 
 }
 
+$getReviews = "SELECT reviewID, reviewDate, userID, tc_users.username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
+FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.userID
+WHERE hotelID = '$hotelID'";
+$reviews = $dbConn->query($getReviews);
+
+
 //review summary
 echo "<h1>Reviews</h1>
 <div class='splitCol reviewInfo reviewInfoHeader'>
