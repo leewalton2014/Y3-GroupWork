@@ -8,6 +8,31 @@ makeHeader();
 
 $hotelID = filter_has_var(INPUT_GET, 'hotelID') ? $_GET['hotelID'] : null;
 
+
+echo "<h1>Edit Hotel Information</h1>
+      <form action='updateHoliday.php' method='post'";
+
+
+$getUsersQuery = "SELECT locationCity, locationID, locationCountry
+FROM tc_locations
+";
+
+
+
+$dbConn = getConnection();
+
+$queryResult = $dbConn->query($getUsersQuery);
+
+
+
+while ($rowObj = $queryResult->fetchObject()){
+    echo "
+
+          <br><input type='radio' value='{$rowObj->locationID}' name='locationID'>
+          <label for='{$rowObj->locationID}'>{$rowObj->locationCity}, {$rowObj->locationCountry}</label><br>";
+
+        }
+
 $dbConn = getConnection();
 $getUsersQuery = "SELECT tc_hotels.hotelID, hotelName, hotelDescription, hotelLocation, roomNo, boardType, nightRatePerPerson, occupancy, typeName, locationCity, locationCountry, imageRef
 
@@ -20,22 +45,9 @@ FROM tc_rooms INNER JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
 $queryResult = $dbConn->query($getUsersQuery);
 
 
-echo '<h1>Edit Hotel Information</h1>
-<form action="updateHoliday.php" method="post">
-<h2>Hotel Location</h2>
-<input type="radio" value="1" name="locationID">
-<label for="1">London</label>
-<input type="radio" value="2" name="locationID">
-<label for="2">Manchester</label>
-<input type="radio" value="3" name="locationID">
-<label for="3">Tokyo</label>
-<input type="radio" value="4" name="locationID">
-<label for="4">Paris</label>
-<input type="radio" value="5" name="locationID">
-<label for="5">Berlin</label>';
 
 
-while ($rowObj = $queryResult->fetchObject()){
+$rowObj = $queryResult->fetchObject();
     echo "
           <h2>Hotel ID</h2>
           <input type='text' name='hotelID' value='{$rowObj->hotelID}' readonly>
@@ -48,7 +60,7 @@ while ($rowObj = $queryResult->fetchObject()){
           <h2>Image Link</h2>
           <input type='text' name='imageRef' value='{$rowObj->imageRef}'>
             ";
-}
+
 echo '
 <h2>Inclusions</h2>
 <p>Pool</p>

@@ -7,6 +7,7 @@ makeHeader();
 ?>
 
 <h1>Create A Hotel</h1>
+<h2>Hotel will not display on the holidays until at least 1 room has been added</h2>
 <form action="addholiday-process.php" method="post">
  <input type="text" placeholder="Hotel Name" name="hotelName">
 <input type="text" placeholder="Hotel Description" name="hotelDescription"><br>
@@ -70,7 +71,7 @@ while ($rowObj = $queryResult->fetchObject()){
 </form>
 
 
-<h1>Add a room for an existing hotel</h1>';
+<h1>Add a room for an existing hotel</h1>
 
 
 <form action='addroom-process.php' method="post">

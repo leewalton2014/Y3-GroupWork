@@ -10,7 +10,8 @@ makeHeader();
 
 $getUsersQuery = "SELECT tc_hotels.hotelID, roomID, hotelName, hotelDescription, locationCity, locationCountry, imageRef
 FROM tc_hotels INNER JOIN tc_rooms ON tc_hotels.hotelID = tc_rooms.hotelID
-INNER JOIN tc_locations ON tc_hotels.hotelLocation = tc_locations.locationID";
+INNER JOIN tc_locations ON tc_hotels.hotelLocation = tc_locations.locationID
+WHERE tc_hotels.hotelID IS NOT NULL";
 
 
 
