@@ -81,6 +81,42 @@ echo '
           </form>';
 
 
+
+
+echo "<h1>Select an existing room to edit<h1>";
+
+$getRoomsQuery = "SELECT *, tc_rooms.roomID, tc_roomtype.typeID from tc_rooms
+JOIN tc_hotels on tc_hotels.hotelID = tc_rooms.hotelID
+JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
+WHERE tc_hotels.hotelID = $hotelID";
+
+
+$dbConn = getConnection();
+    $queryResult = $dbConn->query($getRoomsQuery);
+
+
+
+echo"
+
+<form action='editRoom.php' method='get'>
+<table>
+<tr>
+
+</tr>
+<tr>";
+
+while ($rowObj = $queryResult->fetchObject()){
+    echo "<td>
+              
+              
+              <a href='editRoom.php?roomID={$rowObj->roomID}'>{$rowObj->roomNo}</a><hr>
+              <p>{$rowObj->boardType}</p></td>
+              ";
+              
+
+}
+
+
 //<a href='editRecord.php?recordID={$rowObj->recordID}'>{$rowObj->recordTitle}</a>
 
 holidaysJs();
