@@ -31,7 +31,7 @@ $rowObj = $queryResult->fetchObject();
 
 
 
-$getRoomsQuery = "SELECT *, tc_roomtype.typeID from tc_rooms
+$getRoomsQuery = "SELECT *, tc_hotels.hotelID, tc_roomtype.typeID from tc_rooms
 JOIN tc_hotels on tc_hotels.hotelID = tc_rooms.hotelID
 JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
 WHERE tc_rooms.typeID = $typeID AND tc_hotels.hotelID = $hotelID";
@@ -44,7 +44,7 @@ $dbConn = getConnection();
 
 echo"
 
-<form action='book-room-process.php' method='post'>
+<form action='bookingConfirmation.php' method='post'>
 <table>
 <tr>
 
@@ -53,6 +53,7 @@ echo"
 
 while ($rowObj = $queryResult->fetchObject()){
     echo "<td>
+    <input type='hidden' value='{$rowObj->hotelID}' name='hotelID'>
     <input type='hidden' value='{$rowObj->roomID}' name='roomID'>
     <input type='radio' value='{$rowObj->roomNo}' name='roomNo'>
               <label for'roomNo'><h2>Room Number</h2><hr>{$rowObj->roomNo}  <hr> <h2>Board Type</h2><p>{$rowObj->boardType}</p></label></td> ";
@@ -63,8 +64,7 @@ while ($rowObj = $queryResult->fetchObject()){
 
 echo"
 </tr>
-</table>
-</form>";
+</table>";
 
 
 
@@ -93,7 +93,6 @@ echo"
 
 
 <h2>How long will you be staying?</h2>
-<form action='bookingConfirmation.php' method='post'>
   <input type='hidden' name='occupancy' value='{$rowObj->occupancy}'>
   <label for='arrivalDate'>Arrival Date:</label>
   <input type='date' id='arrivalDate' name='arrivalDate'>

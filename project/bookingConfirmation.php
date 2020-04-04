@@ -8,12 +8,15 @@ makeHeader();
 $arrivalDate = filter_has_var(INPUT_POST, 'arrivalDate') ? $_POST['arrivalDate'] : null;
 $occupancy = filter_has_var(INPUT_POST, 'occupancy') ? $_POST['occupancy'] : null;
 $stayDuration = filter_has_var(INPUT_POST, 'stayDuration') ? $_POST['stayDuration'] : null;
-$numberOfGuests = filter_has_var(INPUT_POST, 'numerOfGuests') ? $_POST['numberOfGuests'] : null;
+$numberOfGuests = filter_has_var(INPUT_POST, 'numberOfGuests') ? $_POST['numberOfGuests'] : null;
 $roomNo = filter_has_var(INPUT_POST, 'roomNo') ? $_POST['roomNo'] : null;
 $roomID = filter_has_var(INPUT_POST, 'roomID') ? $_POST['roomID'] : null;
+$hotelID = filter_has_var(INPUT_POST, 'hotelID') ? $_POST['hotelID'] : null;
 
-$username = $_SESSION['username'];
 
+
+//$username = $_SESSION['username'];
+$username = "richie.liu";
 
 try {
    
@@ -50,57 +53,71 @@ try {
 
 
                 $insertBookingQuery = "INSERT INTO tc_bookings(userID, roomID, arrivalDate, stayDuration, numberGuests)
-                                       SELECT userID, roomID, $arrivalDate, $stayDuration, $numberOfGuests
+                                       SELECT userID, :roomID, :arrivalDate, :stayDuration, :numberGuests
                                        FROM tc_users
-                                       WHERE username = $username
+                                      
+                                       WHERE tc_users.username = '$username'";
                 
-                ";
+                // WHERE username = $username
+                
+                
+        
+                
+                
+                
                                        
-                $updateResult = $dbConn->prepare($updateSQL);
+                $dbConn = getConnection();
                 $statement = $dbConn->prepare($insertBookingQuery);
-                $statement->execute();
-                
+                $statement->execute(array(':arrivalDate' => $arrivalDate, ':stayDuration' => $stayDuration, ':roomID' => $roomID, 'numberGuests' => $numberOfGuests));
+              
             
                                   
                                   
                                   
                 
-                echo "<p>Your invoice</p>";
+                echo "<h1>Your invoice</h1>";
                 
-                $bookingInvoiceQuery = "SELECT *, tc_users.username, tc_rooms.roomNo 
+                $bookingInvoiceQuery = "SELECT *, tc_users.username, tc_rooms.roomNo, hotelName 
                                         FROM tc_bookings
                                         JOIN tc_users on tc_bookings.userID = tc_users.userID
                                         JOIN tc_rooms on tc_bookings.roomID = tc_rooms.roomID
-                                        WHERE tc_users.username = $username";
+                                        JOIN tc_hotels on tc_rooms.hotelID = tc_hotels.hotelID
+                                        WHERE tc_users.username = '$username' AND tc_bookings.roomID = $roomID AND tc_hotels.hotelID = '$hotelID'";
                 
                 
                 $dbConn = getConnection();
                 $queryResult = $dbConn->query($bookingInvoiceQuery);
                 
                 echo "<table>
-                        <tr>
+                        <tr><th>Place of Stay</th>
                             <th>username</th>
                             <th>room Number</th>
                             <th>Arrival Date</th>
-                            <th>Stay Durationi</th>
+                            <th>Stay Duration</th>
                             <th>Number of Guests</th>
                         </tr>
-                        <tr>
+                        
                                 ";
 
                 while ($rowObj = $queryResult->fetchObject()){
-                echo "<td>{$rowObj->username}</td>
+                echo "<tr>
+                      <td>{$rowObj->hotelName}</td>
+                      <td>{$rowObj->username}</td>
                       <td>{$rowObj->roomNo}</td>
                       <td>{$rowObj->arrivalDate}</td>
                       <td>{$rowObj->stayDuration}</td>
-                      <td>{$rowObj->numberGuests}</td>";
+                      <td>{$rowObj->numberGuests}</td>
+                      </tr>";
 
 
-}
+                    }
+                
+               
                 
                 
                 
-                echo "<form action='holidays.php'>
+                echo "</table>
+                <form action='holidays.php'>
                <input type='submit' value='Back to Holidays'>
                </form><br>";
 
