@@ -125,10 +125,12 @@ while ($rowObj = $queryResult->fetchObject()){
         }    
     
     echo"<h3>Board Type</h3>
-         <input type='radio' value='>All inclusive, drinks included.' name='boardType'>
+         <input type='radio' value='All inclusive, drinks included.' name='boardType'>
          <label for='>All inclusive, drinks included.'>All inclusive, drinks included.</label>
-         <input type='radio' value='Full board, no drinks included.' name='boardType'>
-         <label for='Full board, no drinks included.'>Full board, no drinks included.</label><br>
+         <input type='radio' value='All inclusive.' name='boardType'>
+         <label for='All inclusive.'>All inclusive.</label><br>
+         <input type='radio' value='Inclusive.' name='boardType'>
+         <label for='Inclusive.'>Inclusive.</label><br>
          <input type='submit' value='Create Room'>
          </form>";
     

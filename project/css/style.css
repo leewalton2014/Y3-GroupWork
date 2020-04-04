@@ -559,3 +559,16 @@ textarea {
   font-size: 20px;
   width: 100%
 }
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 500px;
+}
+
+td, th {
+  border: 2px solid #000;
+  text-align: left;
+  padding: 8px;
+}
