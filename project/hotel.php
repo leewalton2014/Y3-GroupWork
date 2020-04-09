@@ -93,7 +93,7 @@ echo "<h1>Reviews</h1>
 
 <a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
 <br>";
-
+/*
 $getReviews = "SELECT reviewID, reviewDate, userID, tc_users.username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
 FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.userID
 WHERE hotelID = '$hotelID'";
@@ -103,7 +103,7 @@ while ($review = $reviews->fetchObject()){
 
 }
 //review summary
-
+*/
 echo "<div class='fullReview'>
   <p><b>Review Title</b></p>
   <div class='splitCol'>
