@@ -7,20 +7,37 @@ makeHeader();
 ?>
 
 <h1>Create A Hotel</h1>
+<h2>Hotel will not display on the holidays until at least 1 room has been added</h2>
 <form action="addholiday-process.php" method="post">
-<input type="text" placeholder="Hotel Name" name="hotelName">
-<input type="text" placeholder="Hotel Description" name="hotelDescription">
+ <input type="text" placeholder="Hotel Name" name="hotelName">
+<input type="text" placeholder="Hotel Description" name="hotelDescription"><br>
 <h2>Hotel Location</h2>
-<input type="radio" value="1" name="locationID">
-<label for="1">London</label>
-<input type="radio" value="2" name="locationID">
-<label for="2">Manchester</label>
-<input type="radio" value="3" name="locationID">
-<label for="3">Tokyo</label>
-<input type="radio" value="4" name="locationID">
-<label for="4">Paris</label>
-<input type="radio" value="5" name="locationID">
-<label for="5">Berlin</label>
+<?php
+
+    $getUsersQuery = "SELECT locationCity, locationID, locationCountry
+FROM tc_locations
+";
+
+
+
+$dbConn = getConnection();
+
+$queryResult = $dbConn->query($getUsersQuery);
+
+
+
+while ($rowObj = $queryResult->fetchObject()){
+    echo "
+
+          <input type='radio' value='{$rowObj->locationID}' name='locationID'>
+          <label for='{$rowObj->locationID}'>{$rowObj->locationCity}, {$rowObj->locationCountry}</label><br>";
+
+        }
+
+
+?>
+
+
 
 
 <input type="text" placeholder="Image Link" name="imageRef">
@@ -109,10 +126,12 @@ while ($rowObj = $queryResult->fetchObject()){
         }    
     
     echo"<h3>Board Type</h3>
-         <input type='radio' value='1' name='boardType'>
-         <label for='1'>All inclusive, drinks included.</label>
-         <input type='radio' value='2' name='boardType'>
-         <label for='2'>Full board, no drinks included.</label><br>
+         <input type='radio' value='All inclusive, drinks included.' name='boardType'>
+         <label for='>All inclusive, drinks included.'>All inclusive, drinks included.</label>
+         <input type='radio' value='All inclusive.' name='boardType'>
+         <label for='All inclusive.'>All inclusive.</label><br>
+         <input type='radio' value='Inclusive.' name='boardType'>
+         <label for='Inclusive.'>Inclusive.</label><br>
          <input type='submit' value='Create Room'>
          </form>";
     

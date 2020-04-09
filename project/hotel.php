@@ -28,7 +28,7 @@ $queryResult = $dbConn->query($getUsersQuery);
 
 echo "<div class='widthWrap splitCol'>";
 
-while ($rowObj = $queryResult->fetchObject()){
+$rowObj = $queryResult->fetchObject();
     echo "<div class='widthWrap splitCol'>
       <div class='hotel'>
         <p>Hotels > {$rowObj->locationCountry} > {$rowObj->locationCity} > <b>{$rowObj->hotelName}</b></p>
@@ -62,7 +62,16 @@ while ($rowObj = $queryResult->fetchObject()){
           </div>
         </article>";
 
-}
+echo "<aside>
+  <div class='cAlign hotelContinue'>
+    <span class='price'>&#163;<h2>425pp</h2></span>
+    <br>
+    <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
+    <h1><a class='#' href='book-holiday.php?hotelID=$hotelID'>Continue</a></h1>
+  </div>
+  </aside>"; //Temporary Code
+
+
 
 echo "<h1>Reviews</h1>
 <div class='splitCol reviewInfo reviewInfoHeader'>

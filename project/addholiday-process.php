@@ -42,23 +42,23 @@ try {
                 echo "<p>You need to provide an image link</p>\n";
                 $errors = true;
             }
-            if (empty($pool)) {
+            if  ($pool == ""){
                 echo "<p>You need to select an option for the pool</p>\n";
                 $errors = true;
             }
-            if (empty($spa)) {
+            if  ($spa == "") {
                 echo "<p>You need to select an option for the spa</p>\n";
                 $errors = true;
             }
-            if (empty($balcony)) {
+            if  ($balcony == "") {
                 echo "<p>You need to select an option for the balcony</p>\n";
                 $errors = true;
             }
-            if (empty($bar)) {
+            if  ($bar == "") {
                 echo "<p>You need to select an option for the bar</p>\n";
                 $errors = true;
             }
-            if (empty($restaurant)) {
+            if  ($restaurant == "") {
                 echo "<p>You need to select an option for the restaurant</p>\n";
                 $errors = true;
             }
@@ -94,7 +94,10 @@ try {
                 echo "<p>New hotel has been added to the list.</p>";
                 echo "<form action='holidays.php'>
                <input type='submit' value='Back to Holidays'>
-               </form><br>";
+               </form><br>
+               <form action='addholiday-form.php'>
+               <input type='submit' value='Add another new room/hotel'>
+               </form>";
 
 
             }

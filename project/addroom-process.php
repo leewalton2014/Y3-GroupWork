@@ -66,7 +66,12 @@ try {
                 echo "<p>New room has been added.</p>";
                 echo "<form action='holidays.php'>
                <input type='submit' value='Back to Holidays'>
-               </form><br>";
+               </form>
+               <form action='addholiday-form.php'>
+               <input type='submit' value='Add another new room/hotel'>
+               </form>
+               
+               <br>";
 
 
             }

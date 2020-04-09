@@ -2,11 +2,11 @@
 //Database connection
 function getConnection() {
     try {
-        $url = 'http://ec2-3-80-97-18.compute-1.amazonaws.com';
         $currentPath = getcwd();
         //$connection = new PDO('sqlite:tc_holidays.sqlite');
-        //$connection = new PDO('mysql:host=localhost;dbname=unn_w17007224', 'unn_w17007224', 'db2020lww');
-        $connection = new PDO('mysql:host='$url';dbname=tc_holidays', 'root', 'Newcastle251182');
+      //$connection = new PDO('mysql:host=localhost;dbname=unn_w17007224', 'unn_w17007224', 'db2020lww');
+     //$connection = new PDO('mysql:host=localhost;dbname=tc_holidays', 'root', 'Newcastle251182');
+        $connection = new PDO('mysql:host=localhost;dbname=tc_holidays', 'root', 'Newcastle251182');
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connection;
     } catch (Exception $e) {
