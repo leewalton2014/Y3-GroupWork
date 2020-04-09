@@ -64,13 +64,6 @@ while ($rowObj = $queryResult->fetchObject()){
 
 }
 
-$getReviews = "SELECT reviewID, reviewDate, userID, tc_users.username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
-FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.userID
-WHERE hotelID = '$hotelID'";
-$reviews = $dbConn->query($getReviews);
-
-
-//review summary
 echo "<h1>Reviews</h1>
 <div class='splitCol reviewInfo reviewInfoHeader'>
   <img src='img/rating3.jpg'>
@@ -90,9 +83,19 @@ echo "<h1>Reviews</h1>
 </span>
 
 <a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
-<br>
+<br>";
 
-<div class='fullReview'>
+$getReviews = "SELECT reviewID, reviewDate, userID, tc_users.username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
+FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.userID
+WHERE hotelID = '$hotelID'";
+$reviews = $dbConn->query($getReviews);
+while ($review = $reviews->fetchObject()){
+
+
+}
+//review summary
+
+echo "<div class='fullReview'>
   <p><b>Review Title</b></p>
   <div class='splitCol'>
     <img src='img/rating5.jpg'>
