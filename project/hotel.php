@@ -62,14 +62,7 @@ $rowObj = $queryResult->fetchObject();
           </div>
         </article>";
 
-echo "<aside>
-  <div class='cAlign hotelContinue'>
-    <span class='price'>&#163;<h2>425pp</h2></span>
-    <br>
-    <span class='price'><p>Total Price &#163;</p><h2>850</h2></span>
-    <h1><a class='#' href='book-holiday.php?hotelID=$hotelID'>Continue</a></h1>
-  </div>
-  </aside>"; //Temporary Code
+
 
 
 

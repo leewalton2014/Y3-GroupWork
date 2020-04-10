@@ -8,10 +8,8 @@ makeHeader();
 
 
 
-$getUsersQuery = "SELECT tc_hotels.hotelID, roomID, hotelName, hotelDescription, locationCity, locationCountry, imageRef
-FROM tc_hotels INNER JOIN tc_rooms ON tc_hotels.hotelID = tc_rooms.hotelID
-INNER JOIN tc_locations ON tc_hotels.hotelLocation = tc_locations.locationID
-WHERE tc_hotels.hotelID IS NOT NULL";
+$getUsersQuery = "SELECT tc_hotels.hotelID, hotelName, hotelDescription, locationCity, locationCountry, imageRef
+FROM tc_hotels INNER JOIN tc_locations ON tc_hotels.hotelLocation = tc_locations.locationID";
 
 
 
@@ -22,6 +20,13 @@ $queryResult = $dbConn->query($getUsersQuery);
 echo "<div class='widthWrap splitCol'>";
 
 while ($rowObj = $queryResult->fetchObject()){
+  //Check for rooms
+  $getRooms = "SELECT min(nightRatePerPerson) as startingPrice
+  FROM tc_hotels INNER JOIN tc_locations ON tc_hotels.hotelLocation = tc_locations.locationID";
+  $queryResult = $dbConn->query($getRooms);
+
+
+
     echo "<div class='smallHoliday'>
         <img src='{$rowObj->imageRef}'/>
 
