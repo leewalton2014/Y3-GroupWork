@@ -11,7 +11,6 @@ $hotelID = filter_has_var(INPUT_GET, 'hotelID') ? $_GET['hotelID'] : null;
 
 $dbConn = getConnection();
 $getUsersQuery = "SELECT tc_hotels.hotelID, hotelName, hotelDescription, hotelLocation, roomNo, boardType, nightRatePerPerson, occupancy, typeName, locationCity, locationCountry, imageRef
-
 FROM tc_rooms INNER JOIN tc_roomtype on tc_rooms.typeID = tc_roomtype.typeID
               INNER JOIN tc_hotels on tc_hotels.hotelID = tc_rooms.hotelID
               INNER JOIN tc_locations on tc_hotels.hotelLocation = tc_locations.locationID
@@ -86,36 +85,29 @@ echo "<h1>Reviews</h1>
 
 <a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
 <br>";
-/*
-$getReviews = "SELECT reviewID, reviewDate, userID, tc_users.username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
-FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.userID
+
+$getReviews = "SELECT reviewID, reviewDate, userID, username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
+FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.ID
 WHERE hotelID = '$hotelID'";
 $reviews = $dbConn->query($getReviews);
-while ($review = $reviews->fetchObject()){
-
-
+if ($reviews == null){
+  echo "<div class='fullReview'>
+    <p><b>No Reviews</b></p>
+  </div>";
+}else{
+  while ($review = $reviews->fetchObject()){
+    echo "<div class='fullReview'>
+      <p><b>{$review->reviewTitle}</b></p>
+      <div class='splitCol'>
+        <img src='img/rating5.jpg'>
+        <p> {$review->reviewDate}, </p>
+        <p> {$review->username}</p>
+      </div>
+      <p>{$review->reviewText}</p>
+    </div>";
+  }
 }
-//review summary
-*/
-echo "<div class='fullReview'>
-  <p><b>Review Title</b></p>
-  <div class='splitCol'>
-    <img src='img/rating5.jpg'>
-    <p> 10 Jan 2020, </p>
-    <p> Useraname</p>
-  </div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-</div>
-<div class='fullReview'>
-  <p><b>Review Title</b></p>
-  <div class='splitCol'>
-    <img src='img/rating1.jpg'>
-    <p> 10 Jan 2020, </p>
-    <p> Useraname</p>
-  </div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-</div>
-</div>
+echo "</div>
 </div>";
 
 echo "<aside>
