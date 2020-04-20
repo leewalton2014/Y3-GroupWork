@@ -18,7 +18,7 @@ $dbConn = getConnection();
 $queryResult = $dbConn->query($getUsersQuery);
 
 echo "<div class='widthWrap splitCol'>";
-
+echo "<section class='widthWrap splitCol basicHolidayWrap'>";
 while ($rowObj = $queryResult->fetchObject()){
   //Check for rooms
   $getRooms = "SELECT nightRatePerPerson
@@ -28,29 +28,23 @@ while ($rowObj = $queryResult->fetchObject()){
   //$prices = $rooms[nightRatePerPerson];
   //$minPrice = min($prices);
   if ($minPrice == null){
-    echo "<div class='smallHoliday'>
+
+      echo "<div class='basicHoliday'>
         <img src='{$rowObj->imageRef}'/>
-
-        <a href='hotel.php?hotelID={$rowObj->hotelID}'><h1>{$rowObj->hotelName}</h1></a>
-        <h2>{$rowObj->locationCity}, {$rowObj->locationCountry}</h2>
-
-        <div class='splitCol'>
-          <div class='rating'><img src='img/ratingPlaceholder.jpg'/></div>
-          <span class='price'><h2>No Rooms</h2></span>
-        </div>
+        <h2 class='accent'><a href='hotel.php?hotelID={$rowObj->hotelID}'>{$rowObj->hotelName}</a></h2>
+        <div class='rating'><img src='img/ratingPlaceholder.jpg'/></div>
+        <span class='price'><p>From</p><h2>425pp</h2></span>
+        <input class='viewBtn' type='submit' value='View Holiday'>
       </div>";
   }else{
-    echo "<div class='smallHoliday'>
-        <img src='{$rowObj->imageRef}'/>
+    echo "<div class='basicHoliday'>
+      <img src='{$rowObj->imageRef}'/>
+      <h2 class='accent'><a href='hotel.php?hotelID={$rowObj->hotelID}'>{$rowObj->hotelName}</a></h2>
+      <div class='rating'><img src='img/ratingPlaceholder.jpg'/></div>
+      <span class='price'><p>From</p><h2>425pp</h2></span>
+      <input class='viewBtn' type='submit' value='View Holiday'>
+    </div>";
 
-        <a href='hotel.php?hotelID={$rowObj->hotelID}'><h1>{$rowObj->hotelName}</h1></a>
-        <h2>{$rowObj->locationCity}, {$rowObj->locationCountry}</h2>
-
-        <div class='splitCol'>
-          <div class='rating'><img src='img/ratingPlaceholder.jpg'/></div>
-          <span class='price'><p>From</p><h2>£...</h2></span>
-        </div>
-      </div>";
   }
 }
 
@@ -58,7 +52,7 @@ while ($rowObj = $queryResult->fetchObject()){
 
 //holidaysJs();
 
-
+echo "</section>";
 echo "</div>";
 makeFooter();
 endHTML();
