@@ -43,67 +43,81 @@ $rowObj = $queryResult->fetchObject();
           <h1>Holiday Description</h1>
           <div>
             <p>{$rowObj->hotelDescription}</p>
-            <ul>
-              <li>List of items example</li>
-              <li>List of items example</li>
-              <li>List of items example</li>
-              <li>List of items example</li>
-            </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
           </div>
           <h1>Location</h1>
           <div>
             <p>
-            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-            purus. Vivamus hendrerit, dolor at aliquet laoreet.<br>
+            Check the map below for directions.
             </p>
             <iframe src='https://www.google.com/maps/embed/v1/place?key=AIzaSyD-Ikb9FiJVmyXVjSUH2Wms2ot8enQbzu0&q={$rowObj->locationCity},{$rowObj->locationCountry}' width='100%' height='400' frameborder='0' style='border:0;' allowfullscreen=''></iframe>
           </div>
         </article>";
 
+//get summary info
+$getReviewCount = "SELECT reviewID
+FROM tc_reviews
+WHERE hotelID = '$hotelID'";
+$reviewCount = $dbConn->query($getReviewCount);
+$count = $reviewCount->rowCount();
 
-
+$overall = avgRating('overallRating',$hotelID);
+$location = avgRating('locationRating',$hotelID);
+$room = avgRating('roomRating',$hotelID);
+$cleanliness = avgRating('cleanlinessRating',$hotelID);
+$service = avgRating('serviceRating',$hotelID);
 
 
 echo "<h1>Reviews</h1>
-<div class='splitCol reviewInfo reviewInfoHeader'>
-  <img src='img/rating3.jpg'>
-  <p>(22 reviews)</p>
-</div>
-<span class='splitCol reviewInfo'>
-  <p>Cleanliness:</p>
-  <img src='img/rating5.jpg'>
-</span>
-<span class='splitCol reviewInfo'>
-  <p>Value:</p>
-  <img src='img/rating1.jpg'>
-</span>
-<span class='splitCol reviewInfo'>
-  <p>Service:</p>
-  <img src='img/rating3.jpg'>
-</span>
+<div class='splitCol reviewInfo reviewInfoHeader'>";
 
-<a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
+
+getStarImage($overall);
+
+echo "<p>($count reviews)</p>
+</div>";
+
+echo "<span class='splitCol reviewInfo'>
+  <p>Cleanliness:</p>";
+getStarImage($cleanliness);
+echo "</span>";
+echo "<span class='splitCol reviewInfo'>
+  <p>Room:</p>";
+getStarImage($room);
+echo "</span>";
+echo "<span class='splitCol reviewInfo'>
+  <p>Location:</p>";
+getStarImage($location);
+echo "</span>";
+echo "<span class='splitCol reviewInfo'>
+  <p>Service:</p>";
+getStarImage($service);
+echo "</span>";
+
+echo "<a href='reviewForm.php?hotelID=$hotelID' class='buttonCust'>Leave a review</a>
 <br>";
 
 $getReviews = "SELECT reviewID, reviewDate, userID, username, reviewTitle, reviewText, overallRating, locationRating, roomRating, cleanlinessRating, serviceRating
-FROM tc_reviews INNER JOIN tc_users ON tc_reviews.reviewID = tc_users.ID
+FROM tc_reviews INNER JOIN tc_users ON tc_reviews.userID = tc_users.ID
 WHERE hotelID = '$hotelID'";
 $reviews = $dbConn->query($getReviews);
-if ($reviews == null){
+if ($reviews->rowCount() == 0){
   echo "<div class='fullReview'>
     <p><b>No Reviews</b></p>
   </div>";
 }else{
   while ($review = $reviews->fetchObject()){
+    $starRating = $review->overallRating;
     echo "<div class='fullReview'>
       <p><b>{$review->reviewTitle}</b></p>
-      <div class='splitCol'>
-        <img src='img/rating5.jpg'>
-        <p> {$review->reviewDate}, </p>
+      <div class='splitCol'>";
+      //display image for star rating
+      getStarImage($starRating);
+
+    echo "<p> {$review->reviewDate}, </p>
         <p> {$review->username}</p>
       </div>
       <p>{$review->reviewText}</p>
+      <a href='reviewReportProcess.php?reviewID={$review->reviewID}&hotelID=$hotelID'>Report Review</a>
     </div>";
   }
 }

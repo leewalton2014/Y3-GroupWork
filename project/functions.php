@@ -83,10 +83,6 @@ echo $content;
 function makeFooter(){
   $content = <<< makeFOOTER
   <footer>
-    <div class="widthWrap splitCol">
-      <div><p>Content Left</p></div>
-      <div><p>Content Right</p></div>
-    </div>
     <footer>
       <h1 class="cAlign"><b>Travel</b> Co.</h1>
     </footer>
@@ -108,5 +104,40 @@ endHTML;
 function holidaysJs(){
 
     echo "<script src='holidaysJs.js' type='text/javascript'</script>";
+}
+
+function avgRating($ratingCategory, $hotelID){
+  //dbconn
+  $dbConn = getConnection();
+  //query for average by column name
+  $getRatingAvg = "SELECT AVG($ratingCategory)
+  FROM tc_reviews
+  WHERE hotelID = '$hotelID'";
+  $ratngAvg = $dbConn->query($getRatingAvg);
+  $average = $ratngAvg->fetchColumn();
+  $average = round($average);
+  return $average;
+}
+
+function getStarImage($rating){
+  switch ($rating) {
+    case 1:
+        echo "<img src='img/rating1.jpg' alt='1 Star'>";
+        break;
+    case 2:
+        echo "<img src='img/rating2.jpg' alt='2 Stars'>";
+        break;
+    case 3:
+        echo "<img src='img/rating3.jpg' alt='3 Stars'>";
+        break;
+    case 4:
+        echo "<img src='img/rating4.jpg' alt='4 Stars'>";
+        break;
+    case 5:
+        echo "<img src='img/rating5.jpg' alt='5 Stars'>";
+        break;
+    default:
+        echo "<p> No Rating</p>";
+  }
 }
 ?>
