@@ -48,9 +48,6 @@ while ($rowObj = $queryResult->fetchObject()){
   }
 }
 
-//<a href='editRecord.php?recordID={$rowObj->recordID}'>{$rowObj->recordTitle}</a>
-
-//holidaysJs();
 
 echo "</section>";
 echo "</div>";
